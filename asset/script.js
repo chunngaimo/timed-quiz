@@ -22,6 +22,7 @@ const questions = [
     }
 ];
 
+
 //reference
 var timer = document.getElementById("timer");
 var timeLeft = document.getElementById("timeLeft");
@@ -233,6 +234,7 @@ viewScore.addEventListener("click", function(event) {
 });
 
 goBack.addEventListener("click", function() {
+    window.location.reload();
     startQuiz.style.display = "block";
     highScore.style.display = "none";
 });
