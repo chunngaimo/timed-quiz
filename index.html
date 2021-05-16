@@ -5,43 +5,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timed Quiz</title>
+    <title>Timed Coding Quiz</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="stylesheet" href="./asset/style.css">
 </head>
 
 <body>
+    <div class="container-fluid">
 
-    <nav class="navbar navbar-light bg-light">
-        <div id="score-link" class="container-fluid">
-            <a href="highscore.html">View High Scores</a>
-        </div>
-        <div class="container-fluid" id="timer">
-            Time: <span id="time">0</span>
-        </div>
-    </nav>
+        <!-- highscore and timer -->
+        <nav class="row">
+            <div class="col text-left">
+                <a href="#" id="viewScore">View High Scores</a>
+            </div>
+            <div id="timer" class="col text-right">
+                <i class="far fa-clock"></i> Time: <span id="timeLeft">0</span>
+            </div>
+            <div id="timesUp" class="col text-right" style="display: none;">Time is Up!</div>
+        </nav>
 
-    <div id="start-screen">
-        <h1>Coding Quiz</h1>
-        <p>Answer the Following Questions</p>
-        <button id="startbutton">Start</button>
+        <div id="allContent" class="row text-left">
+            <div class="col-md-2"></div>
+                <main class="col-md-8 mt-5">
+                    <!--start screen-->
+                    <div id="begin" class="m-2 justify-content-center">
+                        <h1 class="font-weight-bold pl-5 pr-5">Time Attack</h1>
+                        <p class="p-5">Let's test your knowledge! Try to answer the questions within the time limit. Keep in mind that incorrect answers will deduct ten seconds from your time!</p>
+                        <button type="button" id="start-button" class="btn btn-info ml-5 align-center">Start</button>
+                    </div>
+            
+                    <!--quiz-->
+                    <div id="questionSection" style="display: none;">
+                        <p id="questionTitle" class="pl-5 ml-2 pt-5 justify-content-center font-weight-bold"></p>
+                        <div class="pl-5 pt-2 pb-3 m-2 justify-content-center">
+                            <p><button id="btn0" class="btn btn-dark"></button></p>
+                            <p><button id="btn1" class="btn btn-dark"></button></p>
+                            <p><button id="btn2" class="btn btn-dark"></button></p>
+                            <p><button id="btn3" class="btn btn-dark"></button></p>
+                            <hr id="lineBreak" style="display: none" class="mt-4">
+                            <p id="answerCheck" style="display: none;"></p>
+                        </div>
+                    </div>
+
+                    <!--score-->
+                    <div class="pl-5 ml-2 pt-5 justify-content-center font-weight-bold" id="results" style="display: none;">
+                        <div class="col-2"></div>
+                        <div class="col-8 text-left">
+                            <h2 class="font-weight-bold pt-2 pb-3 m-2">You Have A Score Of <span id="scoreOf"></span> !</h2>
+                            <form>
+                                <p class="pt-2 pb-3 m-2">Initials: <input id="initialInput" class="form-control pt-2 pb-3 mt-2" type="text">
+                                <button type="submit" id="submitBtn" class="btn btn-info mt-3">Submit</button>
+                                </p>
+                            </form>
+                        </div>
+                    <div class="col-2"></div>
+                </div>
+
+                <!-- highscores-->
+                <div id="highScore" class="pl-5 ml-4 pt-5 justify-content-center font-weight-bold" style="display: none;">
+                    <h2 class="font-weight-bold pt-2 pb-3 mb-2">High Scores</h2>                   
+                    
+                    <div id="listOfScores" class="list-group list-group-flush pt-2 pb-3 mb-2"></div>
+
+                    <p>
+                        <button type="submit" class="btn btn-info mt-3 mr-3" id="goBack">Go Back</button>
+                        <button type="submit" class="btn btn-info mt-3" id="clearHighScore">Clear High Scores</button>
+                    </p>
+                    
+                </div>
+            </main>
+        <div class="col-md-2"></div>
     </div>
-    
-    <div id="questions" class="hide">
-        <h3 id="question"></h3>
-        <div id="choices"></div>
-    </div>
-
-    <div id="closing-screen" class="hide">
-        <h3>All Done</h3>
-        <p>Your score is: <span id="score"></span></p>
-        <p>Enter initials</p>
-        <input type="text" id="initials" />
-        <button id="submit">Submit</button>
-
-    </div>
-
+</div>
+<!-- linking js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script src="./asset/script.js"></script>
+<script src="https://kit.fontawesome.com/1d37754851.js" crossorigin="anonymous"></script>
 
 </body>
 
